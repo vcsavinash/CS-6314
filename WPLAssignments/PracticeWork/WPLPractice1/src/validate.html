@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<div id="main">
+	</div>
+		<form id="validate">
+			Username:<input type="text" id="username" align="right"><br><br>
+			Password: <input type="text" id="password"><br><br>
+			Email-Id : <input type="text" id="emailid"><br><br>
+			<input type="button" id="submit" value="Submit">
+		</form>
+	<script>
+		function pageLoad(){
+  			document.getElementById("submit").onclick = validate;
+		}
+		function validate() {
+			var username = document.getElementById("username").value;
+			var pwd = document.getElementById("password").value;
+			var emailid = document.getElementById("emailid").value;
+			var patt1 = /[a-zA-Z0-9!-~]+@[a-zA-Z]+/g; 
+			var patt2 = /^[a-zA-Z0-9]+$/g;
+			var patt3 = /^[a-zA-Z!-~]{8}/g;
+			var resultemail = patt1.test(emailid);
+			var resultuname = patt2.test(username);
+			var resultpwd = patt3.test(pwd);
+    		if(resultemail){
+    			if(resultuname){
+    				if(resultpwd){
+						var para1 = document.createElement("p");
+						var element1 = document.getElementById("main");
+						var node1 = document.createTextNode("Success!!!");
+						para1.appendChild(node1);
+						element1.appendChild(para1);
+					}else {
+						var para3 = document.createElement("p");
+						var element3 = document.getElementById("main");
+						var node3 = document.createTextNode("Error in Password. The password field should be at least 8 characters long. Please check!!");
+						para3.appendChild(node3);
+						element3.appendChild(para3);
+					}
+  				}else {
+		  			var para2 = document.createElement("p");
+					var element2 = document.getElementById("main");
+					var node2 = document.createTextNode("Error in Username. The username field must contain only alphabetical or numeric characters. Please check!!");
+					para2.appendChild(node2);
+					element2.appendChild(para2);
+					if(resultpwd){
+						
+					}else {
+						var para3 = document.createElement("p");
+						var element3 = document.getElementById("main");
+						var node3 = document.createTextNode("Error in Password. The password field should be at least 8 characters long. Please check!!");
+						para3.appendChild(node3);
+						element3.appendChild(para3);
+					}
+				}
+  			}else {
+	  			var para1 = document.createElement("p");
+				var element1 = document.getElementById("main");
+				var node1 = document.createTextNode("Error in Email. The email field should be a valid email address. Please check!!");
+				para1.appendChild(node1);
+				element1.appendChild(para1);
+				if(resultuname){
+    				if(resultpwd){
+						
+					}else {
+						var para3 = document.createElement("p");
+						var element3 = document.getElementById("main");
+						var node3 = document.createTextNode("Error in Password. The password field should be at least 8 characters long. Please check!!");
+						para3.appendChild(node3);
+						element3.appendChild(para3);
+					}
+  				}else {
+		  			var para2 = document.createElement("p");
+					var element2 = document.getElementById("main");
+					var node2 = document.createTextNode("Error in Username. The username field must contain only alphabetical or numeric characters. Please check!!");
+					para2.appendChild(node2);
+					element2.appendChild(para2);
+					if(resultpwd){
+						
+					}else {
+						var para3 = document.createElement("p");
+						var element3 = document.getElementById("main");
+						var node3 = document.createTextNode("Error in Password. The password field should be at least 8 characters long. Please check!!");
+						para3.appendChild(node3);
+						element3.appendChild(para3);
+					}
+				}
+			}
+		}
+		window.onload = pageLoad;
+	</script>
+</body>
+</html>
+		
